@@ -1,28 +1,20 @@
-<script>
-  import Icon from './components/Icon.vue'
-  export default{
-    name: "App",
-    components: {Icon},
-  }
-</script>
-
 <template>
-  <div>
-      <Icon />
+  <div id="app" class="h-dvh grid mobile:grid-cols-5 desktop:grid-cols-12 grid-rows-16 w-full bg-slate-950">
+    <Sidenav />
+    <Main />
+    <Header />
   </div>
 </template>
-
+<script>
+  import Sidenav from './components/Sidenav.vue'
+  import Main from './components/Main.vue'
+  import Header from './components/Header.vue'
+  export default{
+    name: "App",
+    components: {Sidenav, Main, Header},
+    created() {
+    }
+  }
+</script>
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
 </style>
