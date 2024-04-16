@@ -1,24 +1,6 @@
 <template>
   <div class="mobile:col-start-2 desktop:col-start-4 col-end-13 row-start-2 row-end-17 p-3">
-    <div class="flex flex-col flex-wrap">
-      <Title>
-          Ethereum(ETH)
-        </Title>
-      <div class="flex flex-row flex-wrap">
-        <Card>
-          <template #header>
-            Current value
-          </template>
-          <span class="text-6xl">{{ $filters.currency(currentValue.usd) }}</span>
-        </Card>
-        <Card>
-          <template #header>
-            Test
-          </template>
-          <!-- <Lines :chart-data="chartPrices"/> -->
-        </Card>
-      </div>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -38,12 +20,12 @@
         coinValue: Number,
         currency: 'usd',
         coinId: String,
-        chartPrices: [],
+        // chartPrices: [],
       }
     },
     created() {
       this.getValue()
-      this.getChartData()
+      // this.getChartData()
     },
     computed: {
       currentValue() {
@@ -59,17 +41,17 @@
         })
       },
 
-      getChartData() {
-        console.log('Entrou')
-        CoinsService.getValue(['bitcoin','market_chart'], ['vs_currency=usd', 'days=1'])
-        .then((object) => {
-          console.log(object.data , '🐦')
-          this.chartPrices = object.data.prices.map((item) => {
-            return item
-          })
-          // this.chartPrices = [...object.data.prices]
-        })
-      },
+      // getChartData() {
+      //   console.log('Entrou')
+      //   CoinsService.getValue(['bitcoin','market_chart'], ['vs_currency=usd', 'days=1'])
+      //   .then((object) => {
+      //     console.log(object.data , '🐦')
+      //     this.chartPrices = object.data.prices.map((item) => {
+      //       return item
+      //     })
+      //     // this.chartPrices = [...object.data.prices]
+      //   })
+      // },
     },
   }
 </script>

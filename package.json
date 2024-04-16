@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "start": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -14,7 +14,8 @@
     "awesome-toast-component": "^2.0.6",
     "axios": "^1.6.8",
     "v-money3": "^3.24.1",
-    "vue": "^3.4.21"
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
