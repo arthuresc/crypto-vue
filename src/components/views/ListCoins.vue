@@ -6,7 +6,7 @@
   <div class="flex flex-row flex-wrap">
     <Card class="">
       <template #header>
-        <div class="flex justify-between">
+        <div class="ml-3 flex justify-between">
           <div>List</div>
         <div>
           <input placeholder="Search" class="bg-slate-700 rounded-lg shadow-md text-lg font-bold text-slate-300 py-1 px-2" v-model="cryptoSearch"/>

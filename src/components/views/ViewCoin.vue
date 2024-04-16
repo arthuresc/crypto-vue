@@ -8,7 +8,7 @@
         <template #header>
           Current value
         </template>
-        <span class="text-6xl">{{ $filters.currency(currentValue.usd) }}</span>
+        <span class="text-6xl">{{ $filters.currency(cryptoPrices) }}</span>
       </Card>
       <Card>
         <template #header>
@@ -21,7 +21,7 @@
 </template>
 <script>
 import SimpleService from '../../services/SimpleService'
-import CoinsServiceService from '../../services/CoinsService'
+import CoinsService from '../../services/CoinsService'
 export default {
   name: "View",
     components: {
@@ -44,20 +44,23 @@ export default {
       // this.getChartData()
     },
     computed: {
-      currentValue() {
-        console.log(this.coinObject.bitcoin)
-        return {...this.coinObject}
-      },
+      // currentValue() {
+      //   console.log(this.coinObject.bitcoin)
+      //   return {...this.coinObject}
+      // },
       idTreated() {
         return this.id.toLowerCase()
+      },
+      cryptoPrices() {
+        return this.coinObject.market_data?.current_price.usd
       },
     },
     methods: {
       getValue() {
-        CoinsService.getValue([`${this.idTreated}`])
+        CoinsService.getValue([`${this.idTreated}`], ['tickers=false','community_data=false','developer_data=false','sparkline=false'])
         .then((object) => {
           console.log('oi rodei', object)
-          this.coinObject = { ...object.data[this.idTreated] }
+          this.coinObject = { ...object.data }
         })
         .then(() => {
           setTimeout(() => this.getValue(), 2500)
