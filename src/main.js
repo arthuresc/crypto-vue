@@ -5,12 +5,15 @@ import Card from './components/Card.vue'
 import Title from './components/Title.vue'
 import { Money3Component } from 'v-money3'
 import { format, unformat } from 'v-money3';
+import router from './router'
 
 const app = createApp(App);
 
 app.component('Card', Card);
 app.component('Title', Title);
 app.component('v-money', Money3Component);
+
+app.use(router)
 
 app.config.globalProperties.$filters = {
   currency(value) {

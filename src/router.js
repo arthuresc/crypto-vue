@@ -1,14 +1,27 @@
-import { createRouter } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 
 const routes = [
   {
-    name: 'home',
     path: '/',
-    component: './components/views/ListCoins.vue'
+    redirect: () => {
+      return { name: 'list' }
+    }
   },
   {
-    name: 'bitcoin',
-    path: '/bitcoin',
-    component: './components/views/ViewBitcoin.vue'
+    name: 'list',
+    path: '/list',
+    component: () => import('./components/views/ListCoins.vue')
+  },
+  {
+    name: 'view',
+    path: '/view',
+    component: () => import('./components/views/ViewCoin.vue')
   }
-]
+];
+const router = createRouter({
+  base: '/',
+  routes,
+  history: createWebHashHistory()
+})
+
+export default router;

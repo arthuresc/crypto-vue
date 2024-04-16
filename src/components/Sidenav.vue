@@ -4,15 +4,25 @@
       <img class="w-48" src="../assets/icons/logo-projetin.svg"/>
     </div>
     <div class="w-full h-20 flex flex-wrap justify-center items-center divide-y divide-slate-700">
-      <div class="bg-violet-900 w-full h-20 flex justify-center items-center">
+      <!-- <div class="bg-violet-900 w-full h-20 flex justify-center items-center">
         <span class="text-amber-200 text-center text-2xl"> Coins </span>
       </div>
       <div class="hover:bg-violet-400 bg-slate-900 w-full h-20 flex justify-center items-center">
         <span class="text-amber-200 text-center text-2xl"> My Wallet </span>
-      </div>
-      <div class="hover:bg-violet-400 bg-slate-900 w-full h-20 flex justify-center items-center">
+      </div> -->
+      <!-- <RouterLink class="hover:bg-violet-400 bg-slate-900 w-full h-20 flex justify-center items-center">
         <span class="text-amber-200 text-center text-2xl"> Settings </span>
-      </div>
+      </RouterLink> -->
+      <router-link :active-class="'divide-slate-700'" class="hover:bg-violet-400 bg-slate-900 w-full h-20 flex justify-center items-center" :to="{name: 'list'}">
+        <span class="text-amber-200 text-center text-2xl">
+          List
+        </span>
+      </router-link>
+      <router-link class="hover:bg-violet-400 bg-slate-900 w-full h-20 flex justify-center items-center" :to="{name: 'view'}">
+        <span class="text-amber-200 text-center text-2xl">
+          View
+        </span>
+      </router-link>
     </div>
   </div>
 </template>

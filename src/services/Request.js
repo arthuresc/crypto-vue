@@ -26,9 +26,10 @@ export default class Request {
     }, '')
     : `/${options}`;
 
-    const apiOptions = `${formatedOptions}?${formatedFilters}`
+    console.log(formatedOptions, '💓',formatedFilters)
 
-    console.log( apiOptions)
+    const apiOptions = formatedOptions === '/' && !formatedFilters ? '' : `${formatedOptions}?${formatedFilters}`;
+
 
     const axiosOptions = {
       signal: abortSignal(3000),
