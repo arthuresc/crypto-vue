@@ -21,6 +21,7 @@
 </template>
 <script>
 import SimpleService from '../../services/SimpleService'
+import CoinsServiceService from '../../services/CoinsService'
 export default {
   name: "View",
     components: {
@@ -53,9 +54,13 @@ export default {
     },
     methods: {
       getValue() {
-        SimpleService.getValue(['price'], [`ids=${this.idTreated}`, 'vs_currencies=usd', 'include_last_updated_at=true'])
+        CoinsService.getValue([`${this.idTreated}`])
         .then((object) => {
+          console.log('oi rodei', object)
           this.coinObject = { ...object.data[this.idTreated] }
+        })
+        .then(() => {
+          setTimeout(() => this.getValue(), 2500)
         })
       },
     },

@@ -15,12 +15,12 @@
       </template>
       <ul v-if="cryptosArr.length > 0" class="list-none overflow-auto h-96">
         <li class="m-3" v-for="item in cryptosArr" :key="item">
-        <router-link :to="{ name: 'view', params: { 'id': item.name } }">
+        <router-link :to="{ name: 'view', params: { 'id': item.name.toLowerCase() } }">
           <span>{{ item.name }}</span>
         </router-link>
         </li>
       </ul>
-      <h2 v-else class="text">No cryptos to show</h2>
+      <h2 v-else class="text">No cryptocurrencies to show</h2>
     </Card>
   </div>
 </div>
@@ -48,7 +48,7 @@
         coinId: String,
       }
     },
-    created() {
+    mounted() {
       this.getValue()
     },
     computed: {
