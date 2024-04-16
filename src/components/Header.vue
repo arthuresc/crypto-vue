@@ -9,9 +9,7 @@
   import logo from '../assets/icons/logo-projetin.svg'
   export default{
     name: "Header",
-    created() {
-      console.log(logo)
-    }
+    created() {}
   }
 </script>
 <style scoped>

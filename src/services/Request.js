@@ -26,7 +26,6 @@ export default class Request {
     }, '')
     : `/${options}`;
 
-    console.log(formatedOptions, '💓',formatedFilters)
 
     const apiOptions = formatedOptions === '/' && !formatedFilters ? '' : `${formatedOptions}?${formatedFilters}`;
 

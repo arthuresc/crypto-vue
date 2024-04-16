@@ -50,10 +50,10 @@
     },
     mounted() {
       this.getValue()
+      // clearTimeout(timeoutID)
     },
     computed: {
       currentValue() {
-        console.log(this.coinObject.bitcoin)
         return {...this.coinObject}
       },
     },
@@ -73,13 +73,11 @@
         this.cryptosArr = [ ...this.listArr ];
       },
       findCrypto(value, oldValue) {
-        console.log(value, '🦖')
         this.cryptosArr = this.cryptosArr.filter((word) => word.name.includes(value));
       },
       getValue() {
         CoinsService.getValue(['list'])
         .then((response) => {
-          console.log(response, '🍕')
           this.listArr = [ ...response.data ];
           // this.coinObject = { ...object.data.bitcoin }
         })

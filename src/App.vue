@@ -16,7 +16,6 @@
     components: {Sidenav, Main, Header},
     created() {
       // SimpleService.getValue(['price', 'bitcoin']).then((teste) => {
-      //   console.log(teste, '😃')      
       // })
     }
   }

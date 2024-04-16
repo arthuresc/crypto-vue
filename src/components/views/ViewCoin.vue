@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col flex-wrap">
     <Title>
-        Bitcoin(BTC)
+        {{ name }}({{ symbol }})
       </Title>
     <div class="flex flex-row flex-wrap">
       <Card>
@@ -45,7 +45,6 @@ export default {
     },
     computed: {
       // currentValue() {
-      //   console.log(this.coinObject.bitcoin)
       //   return {...this.coinObject}
       // },
       idTreated() {
@@ -54,16 +53,21 @@ export default {
       cryptoPrices() {
         return this.coinObject.market_data?.current_price.usd
       },
+      symbol() {
+        return `${this.coinObject.symbol}`.toUpperCase()
+      },
+      name() {
+        return `${this.coinObject.name}`
+      },
     },
     methods: {
       getValue() {
         CoinsService.getValue([`${this.idTreated}`], ['tickers=false','community_data=false','developer_data=false','sparkline=false'])
         .then((object) => {
-          console.log('oi rodei', object)
           this.coinObject = { ...object.data }
         })
         .then(() => {
-          setTimeout(() => this.getValue(), 2500)
+          let timeoutID = setTimeout(() => this.getValue(), 2500)
         })
       },
     },
