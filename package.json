@@ -9,7 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vuepic/vue-datepicker": "^8.4.0",
+    "apexcharts": "^3.48.0",
+    "awesome-toast-component": "^2.0.6",
     "axios": "^1.6.8",
+    "v-money3": "^3.24.1",
     "vue": "^3.4.21"
   },
   "devDependencies": {

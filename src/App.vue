@@ -9,10 +9,15 @@
   import Sidenav from './components/Sidenav.vue'
   import Main from './components/Main.vue'
   import Header from './components/Header.vue'
+
+  import SimpleService from './services/SimpleService';
   export default{
     name: "App",
     components: {Sidenav, Main, Header},
     created() {
+      // SimpleService.getValue(['price', 'bitcoin']).then((teste) => {
+      //   console.log(teste, '😃')      
+      // })
     }
   }
 </script>

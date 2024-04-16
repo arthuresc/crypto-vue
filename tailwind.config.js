@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'sans': ["Roboto", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"]
+      },
       gridTemplateRows: {
         // Simple 16 row grid
         '16': 'repeat(16, minmax(0, 1fr))',
@@ -18,9 +21,8 @@ export default {
         '17':'17'
       },
       screens: {
-        'mobile': '640px',
-  
-        'desktop': '1024px',
+        'mobile': '640px',  
+        'desktop': '641px',
       }
     }
   },
