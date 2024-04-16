@@ -20,11 +20,14 @@
   </div>
 </template>
 <script>
-
+import SimpleService from '../../services/SimpleService'
 export default {
   name: "View",
     components: {
       // Lines,
+    },
+    props: {
+      id: String,
     },
     data() {
       return {
@@ -44,12 +47,15 @@ export default {
         console.log(this.coinObject.bitcoin)
         return {...this.coinObject}
       },
+      idTreated() {
+        return this.id.toLowerCase()
+      },
     },
     methods: {
       getValue() {
-        SimpleService.getValue(['price'], ['ids=bitcoin', 'vs_currencies=usd,brl', 'include_last_updated_at=true'])
+        SimpleService.getValue(['price'], [`ids=${this.idTreated}`, 'vs_currencies=usd', 'include_last_updated_at=true'])
         .then((object) => {
-          this.coinObject = { ...object.data.bitcoin }
+          this.coinObject = { ...object.data[this.idTreated] }
         })
       },
     },

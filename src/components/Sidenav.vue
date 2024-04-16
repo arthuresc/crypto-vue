@@ -18,11 +18,11 @@
           List
         </span>
       </router-link>
-      <router-link class="hover:bg-violet-400 bg-slate-900 w-full h-20 flex justify-center items-center" :to="{name: 'view'}">
+      <!-- <router-link class="hover:bg-violet-400 bg-slate-900 w-full h-20 flex justify-center items-center" :to="{name: 'view'}">
         <span class="text-amber-200 text-center text-2xl">
           View
         </span>
-      </router-link>
+      </router-link> -->
     </div>
   </div>
 </template>

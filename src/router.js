@@ -14,7 +14,8 @@ const routes = [
   },
   {
     name: 'view',
-    path: '/view',
+    path: '/view/:id',
+    props: true,
     component: () => import('./components/views/ViewCoin.vue')
   }
 ];
